@@ -57,26 +57,44 @@
                                             Portions of the Tanner library in L-Edit were used as building blocks, such as the frame pads. 
                                             Previous assignments from the class were used as building blocks as well. They were then cascaded and added together.
                                             The final design features a static-resistant frame, a four-bit ALU, and an output register. <br />
-                                            <br />
+											<br />
                                             <strong>Design</strong> <br />	
 											The overall design for the four-bit ALU comes from the cascaded version of a one-bit ALU. 
-											The basic design is shown in ____________. The ALU provides functions and will produce outputs based on which selection for the function is selected. 
+											The basic design is shown in <a href="images/hldesign.jpg" ><span>Figure 1</span></a>. The ALU provides functions and will produce outputs based on which selection for the function is selected. 
 											The functions selected for this project are: Add/Sub, XOR, AND, OR. A register system is added with the purpose of demonstrating a sequential design.
+											<br /><em>Figure 1:</em><br />
+											<a class="image featured"><img src="images/hldesign.jpg" /></a>
 											<br />First, I will look at the indivisual components starting with the ALU. The truth tables are created first and then the Karnaugh maps produce the equations. 
-											The Minimized equation is shown in __________.
+											The Minimized equation is shown in <a href="images/kmap.PNG" ><span>Figure 2</span></a>.
 											For the sake of efficient design, the majority of gates considered for this project are taken as constraints of NAND and NOT gates. 
 											Some extra gates such as XOR gates are also included, but the logic generated for most of the final components are reduced to NAND and NOT gates. 
 											This is to minimize the physical area that the layout will occupy. These two gates require very little space in a chip layout. The minimized equations 
 											contain a conversion to a majority of NAND and NOT gates.
-											<br />Figures ________ and _________ show the equation and the minimized equation respectively.
+											<br /><em>Figure 2:</em><br />
+											<a class="image centered"><img src="images/kmap.PNG" width="500" height="450"/></a> 
+											<br />Figures <em>3</em> and <em>4</em> show the circuit diagram for the FA equation and the FA with NAND gates equation respectively. They both come courtesy of online resources.
+											<br /><em>Figure 3:</em><br />
+											<a class="image featured"><img src="images/unmin.PNG" /></a>
+											<em>Figure 4:</em><br />
+											<a class="image featured"><img src="images/min.PNG" /></a>
 											<br />The MUX component will serve as a way to select which logical function will be produced from the ALU. The MUX for this design will need to take in four inputs 
 											and produce one output. Two select lines are needed for this functionality. In order to use the 2x1 MUX that is in the standard cells library, three MUXs must 
-											be combined to create the 4x1 MUX. The logic for this connection is shown in _________. The truth table and equation are shown in _________. The basic circuit 
-											design is shown in _________. The rework of the circuit diagram to use NAND gates is shown in __________.
+											be combined to create the 4x1 MUX. The logic for this connection is shown in <em>Figure 5</em>. The truth table and equation are shown in <em>Figure 6</em>. The basic circuit 
+											design is shown in <em>Figure 7</em>. The rework of the circuit diagram to use NAND gates is shown in <em>Figure 8</em>.
 											<br />
+											<em>Figure 5:</em><br />
+											<a class="image centered"><img src="images/3x2x1.jpg" width="500" height="450"/></a> 
+											<em>Figure 6:</em><br />
+											<a class="image centered"><img src="images/truthtablemux.PNG" width="200" height="300"/></a>
+											<em>Figure 7:</em><br />
+											<a class="image featured"><img src="images/4x1.jpg" /></a>
+											<em>Figure 8:</em><br />
+											<a class="image featured"><img src="images/4x1nand.jpg" /></a>
 											<br />
-											The register system is comprised of D-FFs which come courtesy of the standard cells library. An excerpt from the Tanner Cell datasheet is shown in _________.
-											<br />The anti-static frame is considered next. The frame is created with the components for the Tanner anti-static library. The number of inputs and outputs must be determined 
+											The register system is comprised of D-FFs which come courtesy of the standard cells library. An excerpt from the Tanner Cell datasheet is shown in <em>Figure 9</em>.
+											<br /><em>Figure 9:</em><br />
+											<a class="image featured"><img src="images/DFF_spec_sheet.PNG" /></a>
+											The anti-static frame is considered next. The frame is created with the components for the Tanner anti-static library. The number of inputs and outputs must be determined 
 											to create the chip design. Reset and clock are taken as general inputs. Two select lines are needed for each bit of ALU, so four S1 and four S0 inputs are added. A and B 
 											are needed as inputs for each ALU bit. Cin is needed for just the first ALU bit. four A, four B, and one Cin inputs are added. A Cout bit is needed for the last ALU bit. 
 											One output bit is needed for each of the four ALU bits. This brings the total of twenty-six input or output pads. Two spacer pads are added simply to create a square design. 
@@ -145,9 +163,11 @@
 
                             <!-- Feature -->
                                 <section>
-                                    <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+                                    <!--a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a-->
                                     <header>
-                                        <h3>TBA</h3>
+                                        <h3>TBA
+										<br /> add photo
+										</h3>
                                     </header>
                                     <p><!----></p>
                                 </section>
