@@ -47,82 +47,175 @@
                                         
                                     <!-- Post -->
 										<article class="box post">
-											<a href="#" class="image featured"><img src="images/Final_Full_Frame.PNG" alt="" /></a>
+											<a href="images/Final_Full_Frame.PNG" class="image featured"><img src="images/Final_Full_Frame.PNG" alt="" /></a>
 											<h3>VLSI Chip Design</h3>
                                             
                                             <p>
                                             <strong>Overview</strong> <br />	
-                                            This is a final project from an introductary VLSI course. It was built using the L-Edit 2016.2 software. <br />
+											This is a final project from an introductary VLSI course. It was built using the L-Edit 2016.2 software. 
+											<br />
                                             For the assignment, 0.5-micron technology is one of the design requirements. The lambda is equal to 5e-7m. 
                                             Portions of the Tanner library in L-Edit were used as building blocks, such as the frame pads. 
                                             Previous assignments from the class were used as building blocks as well. They were then cascaded and added together.
-                                            The final design features a static-resistant frame, a four-bit ALU, and an output register. <br />
+											The final design features a static-resistant frame, a four-bit ALU, and an output register. 
 											<br />
+											<br />
+
                                             <strong>Design</strong> <br />	
 											The overall design for the four-bit ALU comes from the cascaded version of a one-bit ALU. 
 											The basic design is shown in <a href="images/hldesign.jpg" ><span>Figure 1</span></a>. The ALU provides functions and will produce outputs based on which selection for the function is selected. 
 											The functions selected for this project are: Add/Sub, XOR, AND, OR. A register system is added with the purpose of demonstrating a sequential design.
-											<br /><em>Figure 1:</em><br />
-											<a class="image featured"><img src="images/hldesign.jpg" /></a>
-											<br />First, I will look at the indivisual components starting with the ALU. The truth tables are created first and then the Karnaugh maps produce the equations. 
+											<br />
+											<br />
+											First, I will look at the indivisual components starting with the ALU. The truth tables are created first and then the Karnaugh maps produce the equations. 
 											The Minimized equation is shown in <a href="images/kmap.PNG" ><span>Figure 2</span></a>.
 											For the sake of efficient design, the majority of gates considered for this project are taken as constraints of NAND and NOT gates. 
 											Some extra gates such as XOR gates are also included, but the logic generated for most of the final components are reduced to NAND and NOT gates. 
 											This is to minimize the physical area that the layout will occupy. These two gates require very little space in a chip layout. The minimized equations 
-											contain a conversion to a majority of NAND and NOT gates.
-											<br /><em>Figure 2:</em><br />
-											<a class="image centered"><img src="images/kmap.PNG" width="500" height="450"/></a> 
-											<br />Figures <em>3</em> and <em>4</em> show the circuit diagram for the FA equation and the FA with NAND gates equation respectively. They both come courtesy of online resources.
-											<br /><em>Figure 3:</em><br />
-											<a class="image featured"><img src="images/unmin.PNG" /></a>
-											<em>Figure 4:</em><br />
-											<a class="image featured"><img src="images/min.PNG" /></a>
-											<br />The MUX component will serve as a way to select which logical function will be produced from the ALU. The MUX for this design will need to take in four inputs 
+											contain a conversion to a majority of NAND and NOT gates. <a href="images/unmin.PNG" ><span>Figure 3</span></a> shows the circuit diagram for the FA equation. 
+											<a href="images/min.PNG" ><span>Figure 4</span></a> shows the FA equation with NAND gates. Both images come courtesy of online resources.
+											<br />
+											<br />
+											The MUX component will serve as a way to select which logical function will be produced from the ALU. The MUX for this design will need to take in four inputs 
 											and produce one output. Two select lines are needed for this functionality. In order to use the 2x1 MUX that is in the standard cells library, three MUXs must 
-											be combined to create the 4x1 MUX. The logic for this connection is shown in <em>Figure 5</em>. The truth table and equation are shown in <em>Figure 6</em>. The basic circuit 
-											design is shown in <em>Figure 7</em>. The rework of the circuit diagram to use NAND gates is shown in <em>Figure 8</em>.
+											be combined to create the 4x1 MUX. The logic for this connection is shown in <a href="images/3x2x1.jpg" ><span>Figure 5</span></a>. The truth table and equation are shown 
+											in <a href="images/truthtablemux.PNG" ><span>Figure 6</span></a>. The basic circuit design is shown in <a href="images/4x1.jpg" ><span>Figure 7</span></a>. The rework of the 
+											circuit diagram to use NAND gates is shown in <a href="images/4x1nand.jpg" ><span>Figure 8</span></a>.
 											<br />
-											<em>Figure 5:</em><br />
-											<a class="image centered"><img src="images/3x2x1.jpg" width="500" height="450"/></a> 
-											<em>Figure 6:</em><br />
-											<a class="image centered"><img src="images/truthtablemux.PNG" width="200" height="300"/></a>
-											<em>Figure 7:</em><br />
-											<a class="image featured"><img src="images/4x1.jpg" /></a>
-											<em>Figure 8:</em><br />
-											<a class="image featured"><img src="images/4x1nand.jpg" /></a>
 											<br />
-											The register system is comprised of D-FFs which come courtesy of the standard cells library. An excerpt from the Tanner Cell datasheet is shown in <em>Figure 9</em>.
-											<br /><em>Figure 9:</em><br />
-											<a class="image featured"><img src="images/DFF_spec_sheet.PNG" /></a>
+											The register system is comprised of D-FFs which come courtesy of the standard cells library. An excerpt from the Tanner Cell datasheet is shown in <a href="images/DFF_spec_sheet.PNG" ><span>Figure 9</span></a>.
+											<br />
+											<br />
 											The anti-static frame is considered next. The frame is created with the components for the Tanner anti-static library. The number of inputs and outputs must be determined 
 											to create the chip design. Reset and clock are taken as general inputs. Two select lines are needed for each bit of ALU, so four S1 and four S0 inputs are added. A and B 
 											are needed as inputs for each ALU bit. Cin is needed for just the first ALU bit. four A, four B, and one Cin inputs are added. A Cout bit is needed for the last ALU bit. 
 											One output bit is needed for each of the four ALU bits. This brings the total of twenty-six input or output pads. Two spacer pads are added simply to create a square design. 
-											Four sides of seven pads are used. The final chip frame design can be seen in _________ encasing the logic design.
+											Four sides of seven pads are used. The final chip frame design can be seen at the top of the page. It is encasing the logic design.
 											<br />
 											<br />
-                                            <strong>Implementation</strong> <br />	
+
+											<strong>Implementation</strong> 
+											<br />	
 											To simulate the logic design, the components and then final design are analyzed using Vivado. The design is implemented using structural modeling. The waveforms produced 
-											for the full adder are shown in _________. The waveforms generated by the MUX are shown in _________.
-											<br />The next step is to implement the design in L-EDIT. The first design is for the one-bit full adder. It uses components (NAND and NOT gates) that come courtesy of the Tanner 
-											Database file associated with the 0.5 micron technology. _________ shows the implementation of the design with labels added after its realization. 
+											for the full adder are shown in <a href="images/one-bit_FA_waveforms.png" ><span>Figure 10</span></a>. The waveforms generated by the MUX are shown in <a href="images/4x1_MUX_waveforms.png" ><span>Figure 11</span></a>.
+											<br />
+											<br />
+											The next step is to implement the design in L-EDIT. The first design is for the one-bit full adder. It uses components (NAND and NOT gates) that come courtesy of the Tanner 
+											Database file associated with the 0.5 micron technology. <a href="images/one-bit_FA_Ledit.png" ><span>Figure 12</span></a> shows the implementation of the design with labels added after its realization. 
 											The design takes in Cin, B, A; and produces outputs S, Cout.
 											<br />
-											The 4x1 MUX is created next. It utilizes three 2x1 MUXs courtesy of the Tanner Database file associated with the 0.5 micron technology. _________ shows the implementation.
-											<br />The full adder and other logic gates are combined to produce the final one-bit ALU. The one-bit ALU is shown in __________. The cascaded design for the four-bit ALU with the 
-											register and MUX system is shown in _________. The Final chip design with the chip frame included is shown in __________. 
-											<br />_________ shows the DRC results for the full chip design. A larger view with the connections labeled is shown in ___________.
-											<br />NOTE: The errors present are all due to the design of the standard cells for the anti-static frame elements. The DRC without the frame is shown in _________.
+											<br />
+											The 4x1 MUX is created next. It utilizes three 2x1 MUXs courtesy of the Tanner Database file associated with the 0.5 micron technology.<a href="images/mux_ledit.PNG" ><span>Figure 13</span></a> shows the implementation.
 											<br />
 											<br />
+											The full adder and other logic gates are combined to produce the final one-bit ALU. The one-bit ALU is shown in <a href="images/one-bit_ALU_ledit.png" ><span>Figure 14</span></a>. The cascaded design for the four-bit ALU with the 
+											register and MUX system is shown in <a href="images/4ALU+mux+register_ledit.PNG" ><span>Figure 15</span></a>. The Final logic with the chip frame labeled is shown in <a href="images/logic+frame_labeled_ledit.PNG" ><span>Figure 16</span></a>. 
+											<br />
+											<br />
+											<a href="images/drc.PNG" ><span>Figure 17</span></a> shows the DRC results for the full chip design.
+											<br />
+											NOTE: The errors present are all due to the design of the standard cells for the anti-static frame elements. The DRC without the frame is shown in <a href="images/drc_logic.PNG" ><span>Figure 18</span></a>.
+											<br />
+											<br />
+
                                             <strong>Conclusion</strong> <br />	
-                                            Placeholder <br />
-                                            
+											This assignment built on our skills over the past assignments for the course. The previous assignments used only one metal mainly to connect all of the input contacts. When creating this chip, Metal1 rails and Metal2 
+											connectors were added to handle the contacts and connections that will run horizontally over the previous layers of metal. This provided a much clearer connection into and out of the smaller components.
+											<br />
+											<br />
+											The steps to connect the frame with the logic design proved to be very useful for understanding how the chip can be made smaller. Instead of using another layer of metal to create the shortest path, more smaller 
+											buses were added which would be connected with Metal1 in direct paths to the frame pads. These routes were created to be out of the way and do not represent the shortest possible path from the logic design to the 
+											I/O pads. These out-of-the-way paths are considered because of other components which use these same I/O are added, they can simply attach to the bus like structure that they are created in. This allows for more 
+											large-area designs to be added much easier.
+											<br />
+											<br />
+											Another element of design which was considered for this project was the inclusion of more functionality into the ALU. The four functions selected represent a very basic and somewhat specialized form of an ALU. 
+											This consideration of functionality selection is based on what components are needed to expand these functionalities. The main drivers for bit inversion stem from MUXs. Since this component is already 
+											implemented into the design, the additional functionality only represents the addition of another component as well as the use of more interconnections to manage the data flow. The inclusion of the register to 
+											store the output values is helpful for learning.
+											<br />
+											<br />
+											The project can house other components such as more internal functions without too many changes being made. While implementing the design, there was an error with the original logic. Although the new logic 
+											was implemented for the final design, which is correct, another version of the chip was completed before this error was noticed. This provided a unique opportunity to rework the components already present. 
+											The output register was cut in half because it previously held the correct data alongside a set of useless data. The bus system for the ALU was reworked to accommodate the Cout for each ALU bit to be tied 
+											to the next bits’ Cin. Only the Cin and Cout for one bit (on opposite sides of the four-bit-ALU) are needed for the new design, so the I/O pads were changed as well. This caused a rework of the entire frame 
+											and connection buses. The new design ended up being smaller (8x8 pads now 7x7 pads) with a smaller internal logic design as well.
+											<br />
+											<br />
+											Much more analysis can be completed for this project such as the use of various metals, the absolute minimization of the chip frame, the minimization of the internal logic, the shortest paths for the I/O 
+											lines, and the analysis of material sciences that go into this project. These will all be interesting topics to discover in my own time, and I hope to be able to add much more to this basic, yet complete, 
+											chip design.
                                             </p>
 
 										</article>
 
 								</div>
+
+
+								<!-- Sidebar -->
+								<div id="sidebar" class="col-4 col-12-medium">
+
+									<!-- Excerpts -->
+									<section>
+												<!-- Excerpt -->
+													<article class="box excerpt">
+														<p>Figure 1:<br />
+														<a href="images/hldesign.jpg" class="image featured"><img src="images/hldesign.jpg" /></a>
+														</p>
+														<p>Figure 2:<br />
+															<a href="images/kmap.PNG" class="image featured"><img src="images/kmap.PNG" /></a>
+														</p>
+														<p>Figure 3:<br />
+														<a href="images/unmin.PNG" class="image featured"><img src="images/unmin.PNG" /></a>
+														</p>
+														<p>Figure 4:<br />
+															<a href="images/min.PNG" class="image featured"><img src="images/min.PNG" /></a>
+														</p>
+														<p>Figure 5:<br />
+															<a href="images/3x2x1.jpg" class="image featured"><img src="images/3x2x1.jpg" /></a>
+														</p>
+														<p>Figure 6:<br />
+															<a href="images/truthtablemux.PNG" class="image featured"><img src="images/truthtablemux.PNG" /></a>
+														</p>
+														<p>Figure 7:<br />
+															<a href="images/4x1.jpg" class="image featured"><img src="images/4x1.jpg" /></a>
+														</p>
+														<p>Figure 8:<br />
+															<a href="images/4x1nand.jpg" class="image featured"><img src="images/4x1nand.jpg" /></a>
+														</p>
+														<p>Figure 9:<br />
+															<a href="images/DFF_spec_sheet.PNG" class="image featured"><img src="images/DFF_spec_sheet.PNG" /></a>
+														</p>
+														<p>Figure 10:<br /> 
+															<a href="images/one-bit_FA_waveforms.png" class="image featured"><img src="images/one-bit_FA_waveforms.png" /></a>
+														</p>
+														<p>Figure 11:<br />
+															<a href="images/4x1_MUX_waveforms.png" class="image featured"><img src="images/4x1_MUX_waveforms.png" /></a>
+														</p>
+														<p>Figure 12:<br />
+															<a href="images/one-bit_FA_Ledit.png" class="image featured"><img src="images/one-bit_FA_Ledit.png" /></a>
+														</p>
+														<p>Figure 13:<br />
+															<a href="images/mux_ledit.PNG" class="image featured"><img src="images/mux_ledit.PNG" /></a>
+														</p>
+														<p>Figure 14:<br />
+															<a href="images/one-bit_ALU_ledit.png" class="image featured"><img src="images/one-bit_ALU_ledit.png" /></a>
+														</p>
+														<p>Figure 15:<br />
+															<a href="images/4ALU+mux+register_ledit.PNG" class="image featured"><img src="images/4ALU+mux+register_ledit.PNG" /></a>
+														</p>
+														<p>Figure 16:<br />
+															<a href="images/logic+frame_labeled_ledit.PNG" class="image featured"><img src="images/logic+frame_labeled_ledit.PNG" /></a>
+														</p>
+														<p>Figure 17:<br />
+															<a href="images/drc.PNG" class="image featured"><img src="images/drc.PNG" /></a>
+														</p>
+														<p>Figure 18:<br />
+															<a href="images/drc_logic.PNG" class="image featured"><img src="images/drc_logic.PNG" /></a>
+														</p>
+													</article>
+
+									</section>
 
 						</div>
 					</div>
