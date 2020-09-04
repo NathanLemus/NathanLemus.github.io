@@ -51,25 +51,98 @@
 											<h3>Just missing googly eyes</h3>
                                             
                                             <p>
-                                            <strong>Overview</strong> <br />
+											<strong>Overview</strong> 
+											<br />
                                             This project was for my senior design class. For anyone not knowledgable in the ways of senior design, it is a two-part
-                                            class which takes groups of students along the engineering design process. <br />
+											class which takes groups of students along the engineering design process. 
+											<br />
+											<br />
                                             My group went with a small robot which would be a software testing platform. More specifically, a software testing platform
                                             for the Intelligent Systems Club's autonomous snowplow team "Yeti"; now known as "Mammoth". I talk about the Yeti 
                                             project <a href="yeti_article.html"><span>Here</span></a>. This project solves an issue that the team was having, where they did
-                                            not have enough testing time leading up to the 2020 competition. The testbench provides a tool to work with when the mechanical and electrical 
-                                            teams have the Yeti robot in pieces. The testbench also provides a way for new members of the ISC to experiment with their code outside of
-                                            Gazebo and the likes. <br />
-                                            <br />
-                                            <strong>Planning, Constraints, and Requirements</strong> <br />
-                                            The first semester allowed us time to work through what we would want to deliver...<br />
-                                            <br />
-                                            <strong>Design</strong> <br />
-                                            ...<br />
-                                            <br />
-                                            <strong>Conclsion</strong> <br />
-                                            ...
-
+											not have enough testing time leading up to the 2020 competition. The testbench provides a tool for the software team to work with when the mechanical 
+											and electrical teams have the Yeti robot in pieces. The testbench also provides a way for new members of the ISC to experiment with their code outside 
+											of Gazebo and the likes. 
+											<br />
+											<br />
+											<strong>Planning, Constraints, and Requirements</strong> 
+											<br />
+											The first semester allowed us time to work through what we would want to deliver. For this semester we would have to develop a concept, requitrements, 
+											high level design, and start with excusrions. After pitching the concept, the requirements took a while to develop. 
+											<br />
+											<br />
+											The constraints were based off what our idea of the robot would be. (An indoor test bench small enough to be easily moved in case a member needed to take 
+											the equipment to a new space for testing)
+											<br />
+											<br />
+											Some of the requirements were based off hardware which was required to be used by the club. We would be borrowing the LiDAR and camera from the club, 
+											so while the idea of planning requirements based on a design elements is not ideal, we planned the rest of the requirements off of what the club would find most 
+											attractive in a test bench robot. 
+											<br />
+											<br />Some of the requirements we had:
+											<br />-Under 1 cubic foot 
+											<br />-Operate with on-board power supply for 1 hour 
+											<br />-Stop time after no controller input under 1.5 seconds 
+											<br />-Max speed under 1 m/s
+											<br />-PI reaches stead ystate under 1.5 seconds 
+											<br />-LiDAR range 0.1 meter to 10 meters 
+											<br />-Laser scan data rate for the LiDAR cannot exceed 1 Mbps
+											<br />-Pose data rate for the camera under 0.5 Mbps
+											<br />
+											<br />
+											Two planning elemts of the second semster are build schedule and test plan. I suppose that is planning too. The build schedule was crated at the end of the low 
+											level design process. The schedule was made to spread out the difficult and easier sections of work. It also accounted for taking care of essential sections early 
+											so every member would have something to work on as the build progressed. The test plan was designed based on the requirements where each requirement needed to be 
+											tested to prove the system was succesful. We had rougly 12 weeks to complete the build and testing of the robot.
+											<br />
+											<br />
+											<strong>Design</strong> 
+											<br />
+											The High level design was completed in the first semester. We broke the projects into submodules and then identified the major components that would be needed for each 
+											of these modules. Along with the modules we described a power and data interface. 
+											We designed 5 modules:
+											<br />
+											<br />
+											Perception:
+											<br />-(hardware) Tracking camera [<em>Intel RealSense T265 - provided by ISC</em>]
+											<br />-(software) ROS Camera node 
+											<br />-(hardware) LiDAR [<em>UST-10LX - provided by ISC</em>]
+											<br />-(software) ROS LiDAR node
+											<br />
+											Drive:
+											<br />-(hardware) Motors with encoders [<em>4x 6V DC - 10 kg-cm 210 rpm w/ encoders</em>] 
+											<br />-(hardware) Motorcontroller [<em>sabertooth dual 12A motor driver</em>] 
+											<br />-(software) ROS Motorcontroller node
+											<br />
+											Control:
+											<br />-(hardware) Microcontroller [<em>Nvidia Jetson Nano developer kit</em>] 
+											<br />-(software) PID control system node
+											<br />-(hardware) Handheld controller [<em>Xbox one variant - provided by ISC</em>] 
+											<br />-(software) ROS Joy node
+											<br />
+											Communication:
+											<br />-(hardware) Personal computer (<em>one of ours for interacting with SSH</em>) 
+											<br />-(hardware) wireless hotspot (<em>a router for wireless</em>)
+											<br />-(hardware) Wifi module [<em>Waveshare AC8265 WNIC</em>] 
+											<br />
+											Power:
+											<br />-(hardware) Batteries [<em>Skylipo 7.4V 3300 mAh</em>] 
+											<br />-(hardware) Jetson Nano (<em>it provides power to encoders</em>)
+											<br />-(hardware) LiDAR voltage regulator [<em>Pololu 12V step-up U3V12F12</em>] 
+											<br />-(hardware) Jetson Nano voltage regulator [<em>DFRobot DFR0205 power module</em>]
+											<br />
+											<br />
+											<strong>Implementation</strong> 
+											<br />
+											Naturally some design elements changed betwen the HLD and LLD and even then to the final build. 
+											I will talk more about the final build than the LLD for the implementation.
+											<br />
+											<br />
+											The controller software and the power delivery for the Nano were completed first. 
+											<br />
+											<br />
+											<strong>Conclsion</strong> 
+											<br />
                                             </p>
 										</article>
 
